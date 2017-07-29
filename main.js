@@ -67,13 +67,15 @@ function json(){
                 $('#q4').html(instance[5]);
 
                 /* STILL BASIC - Question&Answer confrontation logic */
-                $('.questions').click(function(){
+                $('.questions').off().click(function(){
                     var answer = $(this).html();
                     if (answer == instance[1]){
-                        $(this).addClass("correct");
-                        go();
+                         $(this).addClass("correct");
+                             setTimeout(go, 900);
                     } else {
                         $(this).addClass("wrong");
+                        $('.questions:contains('+instance[1]+')').addClass("correct");
+                             setTimeout(go, 1100);
                     }
                 })
         }
